@@ -248,19 +248,38 @@ ComponentとProjectのモディファイアには接頭辞【is_】をつけ、c
 > ex.) .c_btn.is_blue / .c_form.is_large / .c_logo.is_type01 etc.
 
 ## よく使うクラス名の例
-
 <table>
   <tr>
-    <td>foo</td>
+    <th></th>
+    <th>Block</th>
+    <th>Element</th>
+    <th>Modifier</th>
+  </tr>
+  <tr>
+    <th>Frame<br>接頭辞 f_</th>
+    <td>f_site</td>
+    <td>\_\_header<br>\_\_nav<br>\_\_container<br>\_\_sidebar<br>\_\_main<br>\_\_footer</td>
+    <td>has_○○<br>使う場面は少ない</td>
+  </tr>
+  <tr>
+    <th>Layout<br>接頭辞 l_</th>
+    <td>l_header<br>l_nav<br>l_container<br>l_sidebar<br>l_main<br>l_footer<br>l_section<br>l_content<br>l_article</td>
+    <td>\_\_head（上部）<br>\_\_foot（下部）<br>\_\_body（主要部分）<br>\_\_inner（内側の）<br>\_\_outer（外側の）<br>\_\_first（1番目の）<br>\_\_second（2番目の）<br>\_\_third（3番目の）<br>\_\_fourth（4番目の）</td>
+    <td>has_ + <br>left（左）<br>center（左右中央）<br>right（右）<br>top（上部）<br>middle（上下中央）<br>bottom（下部）</td>
+  </tr>
+  <tr>
+    <th>Object<br>接頭辞 c_</th>
+    <td>c_ttl<br>c_date<br>c_time<br>c_logo<br>c_nav<br>c_txt<br>c_hero<br>c_hamburger<br>c_back-to-top<br>c_search-box<br>c_btn<br>c_badge<br>c_label<br>c_tag<br>c_cta<br>c_card<br>c_dropdown<br>c_accordion<br>c_table</td>
+    <td>\_\_head（上部）<br>\_\_foot（下部）<br>\_\_body（主要部分）<br>\_\_inner（内側の）<br>\_\_outer（外側の）<br>\_\_ttl（表題・題名）<br>\_\_lead（記事の要約）<br>\_\_list（一覧・表）<br>\_\_menu（一覧・表）<br>\_\_item（項目）<br>\_\_thumbnail（縮小画像）<br>\_\_date（日付）<br>\_\_time（日時）</td>
+    <td>is_ +<br>show（見せる）<br>hide（隠す）<br>open（開く）<br>close（閉じる）<br>current（現在の）<br>active（有効な）<br>disabled（無効）</td>
+  </tr>
+  <tr>
+    <th>Object<br>接頭辞 p_</th>
+    <td>p_card<br>p_profile<br>p_gellery<br>p_article</td>
+    <td>\_\_head（上部）<br>\_\_foot（下部）<br>\_\_body（主要部分）<br>\_\_inner（内側の）<br>\_\_outer（外側の）<br>\_\_ttl（表題・題名）<br>\_\_lead（記事の要約）<br>\_\_list（一覧・表）<br>\_\_menu（一覧・表）<br>\_\_item（項目）<br>\_\_thumbnail（縮小画像）<br>\_\_date（日付）<br>\_\_time（日時）</td>
+    <td>is_ +<br>vertical（垂直）<br>horizontal（水平）</td>
   </tr>
 </table>
-
-|                    | Block | Element | Modifier |
-| -------------------|-------|---------|----------|
-| Frame <br>接頭辞 f_ | f_site | \__header  \__nav  \__container  \__sidebar<br>\__main<br>\__footer | has_○○<br>使う場面は少ない |
-| Layout<br>接頭辞 l_ | l_header <br> l_nav<br>l_container<br>l_sidebar<br>l_main<br>l_footer<br>l_section<br>l_content<br>l_article | \__head（上部）<br>\__foot（下部）<br>\__body（主要部分）<br>\__inner（内側の）<br>\__outer（外側の）<br>\__first（1番目の）<br>\__second（2番目の）<br>\__third（3番目の）<br>\__fourth（4番目の） | has_ + <br>left（左）<br>center（左右中央）<br>right（右）<br>top（上部）<br>middle（上下中央）<br>bottom（下部） |
-| Object<br>接頭辞 c_ | c_ttl<br>c_date<br>c_time<br>c_logo<br>c_nav<br>c_txt<br>c_hero<br>c_hamburger<br>c_back-to-top<br>c_search-box<br>c_btn<br>c_badge<br>c_label<br>c_tag<br>c_cta<br>c_card<br>c_dropdown<br>c_accordion<br>c_table | \__head（上部）<br>\__foot（下部）<br>\__body（主要部分）<br>\__inner（内側の）<br>\__outer（外側の）<br>\__ttl（表題・題名）<br>\__lead（記事の要約）<br>\__list（一覧・表）<br>\__menu（一覧・表）<br>\__item（項目）<br>\__thumbnail（縮小画像）<br>\__date（日付）<br>\__time（日時） | is_ +<br>show（見せる）<br>hide（隠す）<br>open（開く）<br>close（閉じる）<br>current（現在の）<br>active（有効な）<br>disabled（無効） |
-| Object<br>接頭辞 p_ | p_card<br>p_profile<br>p_gellery<br>p_article | \__head（上部）<br>\__foot（下部）<br>\__body（主要部分）<br>\__inner（内側の）<br>\__outer（外側の）<br>\__ttl（表題・題名）<br>\__lead（記事の要約）<br>\__list（一覧・表）<br>\__menu（一覧・表）<br>\__item（項目）<br>\__thumbnail（縮小画像）<br>\__date（日付）<br>\__time（日時） | is_ +<br>vertical（垂直）<br>horizontal（水平） |
 
 参考: [CSSのクラス名を決めるときに使うリストをつくりました](https://qiita.com/manabuyasuda/items/dbb76ed36970bec95470#state)
 
