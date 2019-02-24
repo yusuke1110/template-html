@@ -57,6 +57,7 @@ FLOCSSでは「ページを構成するプロジェクト共通のコンテナ�
  - cat（カテゴリー）
  - bg（背景）
  - sec（セクション）
+ - glo（グローバル）
 
 ## CSSファイルの構成
 ### 1. Baseカテゴリー
@@ -250,32 +251,32 @@ ComponentとProjectのモディファイアには接頭辞【is_】をつけ、c
 ## よく使うクラス名の例
 <table>
   <tr>
-    <th></th>
+    <th>Prefix</th>
     <th>Block</th>
     <th>Element</th>
     <th>Modifier</th>
   </tr>
   <tr>
-    <th>Frame<br>接頭辞 f_</th>
-    <td>f_site</td>
+    <td>f_<br>(Frame)</td>
+    <td>site</td>
     <td>__header<br>__nav<br>__container<br>__sidebar<br>__main<br>__footer</td>
-    <td>has_○○<br>使う場面は少ない</td>
+    <td>has_○○</td>
   </tr>
   <tr>
-    <th>Layout<br>接頭辞 l_</th>
-    <td>l_header<br>l_nav<br>l_container<br>l_sidebar<br>l_main<br>l_footer<br>l_section<br>l_content<br>l_article</td>
-    <td>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
-    <td>has_ + <br>left（左）<br>center（左右中央）<br>right（右）<br>top（上部）<br>middle（上下中央）<br>bottom（下部）</td>
+    <td>l_<br>(Layout)</td>
+    <td>header<br>nav<br>container<br>sidebar<br>main<br>footer<br>section<br>content<br>article</td>
+    <td>__left（左）<br>__center（左右中央）<br>__right（右）<br>__top（上）<br>__middle（上下中央）<br>__bottom（下）<br>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
+    <td>has_○○</td>
   </tr>
   <tr>
-    <th>Object<br>接頭辞 c_</th>
-    <td>c_ttl<br>c_date<br>c_time<br>c_logo<br>c_nav<br>c_txt<br>c_hero<br>c_hamburger<br>c_back-to-top<br>c_search-box<br>c_btn<br>c_badge<br>c_label<br>c_tag<br>c_cta<br>c_card<br>c_dropdown<br>c_accordion<br>c_table</td>
-    <td>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__ttl（表題・題名）<br>__lead（記事の要約）<br>__list（一覧・表）<br>__menu（一覧・表）<br>__item（項目）<br>__thumbnail（縮小画像）<br>__date（日付）<br>__time（日時）</td>
+    <td>c_<br>(Component)</td>
+    <td>ttl<br>date<br>time<br>logo<br>nav<br>txt<br>hero<br>hamburger<br>back-to-top<br>search-box<br>btn<br>badge<br>label<br>tag<br>cta<br>dropdown<br>accordion<br>table</td>
+    <td>__○○<br>Compoentを最小の単位とするならば、<br>Elementはあまり使われないハズ</td>
     <td>is_ +<br>show（見せる）<br>hide（隠す）<br>open（開く）<br>close（閉じる）<br>current（現在の）<br>active（有効な）<br>disabled（無効）</td>
   </tr>
   <tr>
-    <th>Object<br>接頭辞 p_</th>
-    <td>p_card<br>p_profile<br>p_gellery<br>p_article</td>
+    <td>p_<br>(Project)<br>作業者によっては<br>Componentと判断する<br>場合も有り</td>
+    <td>card<br>profile<br>gellery<br>article</td>
     <td>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__ttl（表題・題名）<br>__lead（記事の要約）<br>__list（一覧・表）<br>__menu（一覧・表）<br>__item（項目）<br>__thumbnail（縮小画像）<br>__date（日付）<br>__time（日時）</td>
     <td>is_ +<br>vertical（垂直）<br>horizontal（水平）</td>
   </tr>
