@@ -44,10 +44,10 @@ FLOCSSでは「ページを構成するプロジェクト共通のコンテナ�
 
 ## 命名規則
 - FLOCSSと同様、基本は[MindBEMding](https://github.com/manabuyasuda/styleguide/blob/master/how-to-bem.md)を使用する
-- Modifierについては、【is_○○】【has_○○】とする（後述）
 - 適切な接頭辞をつける（後述）
 - 接頭辞の後ろは「_（アンダースコア）」とする。
 - 単語の区切りは「-（ハイフン）」とする。  
+- Modifierについては、【is_○○】【has_○○】とする（後述）
 - 以下の単語は省略可とする。  
  - nav（ナビゲーション）
  - btn（ボタン）
