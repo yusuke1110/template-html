@@ -1,0 +1,67 @@
+doctype html
+block vars
+html
+  head
+    include _include/_head.pug
+
+  body(class=key)
+    if key == "top"
+      // トップページ
+      div.f_site
+        // ヘッダー 
+        header.f_site__header
+          include _include/_header.pug
+        
+        // メインイメージ
+        div.f_site__hero
+          include _include/_hero.pug
+          
+        // メインナビ
+        div.f_site__nav
+          include _include/_nav.pug
+
+        // 本文（メインコンテンツ）
+        div.f_site__main
+          block contents
+              
+        // サイドバー
+        div.f_site__sidebar
+          include _include/_sidenav.pug
+
+        // フッター
+        footer.f_site__footer
+          include _include/_footer.pug
+          
+          
+          
+          
+    else
+      // 中ページ
+      div.f_site
+        // ヘッダー
+        header.f_site__header
+          include _include/_header.pug
+          
+        // メインナビ
+        div.f_site__nav
+          include _include/_nav.pug
+          
+        // パンくず
+        div.f_site__breadcrumb
+         block breadcrumb
+
+        // 本文（メインコンテンツ）
+        div.f_site__main
+          block contents
+        
+        // 関連記事
+        div.f_site__related
+          include _include/_related.pug
+              
+        // サイドバー
+        div.f_site__sidebar
+          include _include/_sidenav.pug
+
+        // フッター
+        footer.f_site__footer
+          include _include/_footer.pug

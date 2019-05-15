@@ -1,0 +1,53 @@
+* { box-sizing: border-box; }
+*:focus { outline: none; }
+
+/*----------------------------------------------
+	html
+---------------------------------------------*/
+html { font-size: 62.5%; }
+/*↑ 10pxが1remとなる様に調整*/
+
+/*----------------------------------------------
+	body
+---------------------------------------------*/
+body {
+  font-size: 16px; font-size: 1.6rem;
+  /*↑ remをサポートしていないブラウザ向けにpxでも指定　Set as "px" for browsers that don't support "rem"*/
+  font-family: $font-family-sans-serif;
+  color: #333;
+}
+
+@media screen and (max-width: $breakpoint) {
+  body {
+    min-width: inherit;
+  }
+}
+
+/*----------------------------------------------
+	a
+---------------------------------------------*/
+a {
+  text-decoration: none;
+}
+a:visited {  }
+a:hover,
+a:active,
+a:focus { text-decoration: underline; }
+
+/*----------------------------------------------
+	table
+---------------------------------------------*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*----------------------------------------------
+	img
+---------------------------------------------*/
+
+@media screen and (max-width: $breakpoint) {
+  img {
+    max-width: 100%;
+  }
+}

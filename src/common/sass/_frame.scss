@@ -1,0 +1,131 @@
+/*----------------------------------------------
+	.f_site (for top)
+---------------------------------------------*/
+
+.top {
+  .f_site {
+    display: grid;
+    grid-template:
+      "header header header  header" auto
+      "hero   hero   hero    hero  " 300px
+      "nav    nav    nav     nav   " auto
+      ".      main   sidebar .     " auto
+      "footer footer footer  footer" auto
+      /1fr    745px  235px   1fr;
+    grid-column-gap: 20px;
+    background-color: $color05;
+  }
+
+  /*  .f_site__header
+  ------------------------------------- */
+  .f_site__header {
+    grid-area: header;
+    background-color: $color01;
+  }
+
+  /*  .f_site__hero
+  ------------------------------------- */
+  .f_site__hero {
+    grid-area: hero;
+    background-color: $color01;
+  }
+
+  /*  .f_site__nav
+  ------------------------------------- */
+  .f_site__nav {
+    grid-area: nav;
+    background-color: #12B783;
+  }
+
+  /*  .f_site__main
+  ------------------------------------- */
+  .f_site__main {
+    grid-area: main;
+    margin: 15px 0 0;
+    padding: 15px;
+    background-color: $color04;
+  }
+
+  /*  .f_site__sidebar
+  ------------------------------------- */
+  .f_site__sidebar {
+    grid-area: sidebar;
+    margin-top: 15px;
+  }
+
+  /*  .f_site__footer
+  ------------------------------------- */
+  .f_site__footer {
+    grid-area: footer;
+    background-color: $color01;
+  }
+}
+
+/*----------------------------------------------
+	.f_site (for inner)
+---------------------------------------------*/
+
+.f_site {
+  display: grid;
+  grid-template:
+    "header     header     header     header    " auto
+    "nav        nav        nav        nav       " auto
+    "breadcrumb breadcrumb breadcrumb breadcrumb" auto
+    ".          main       sidebar    .         " auto
+    ".          related    sidebar    .         " auto
+    "footer     footer     footer     footer    " auto
+    /1fr        745px      235px      1fr;
+  grid-column-gap: 20px;
+  background-color: $color05;
+}
+
+/*  .f_site__header
+------------------------------------- */
+.f_site__header {
+  grid-area: header;
+  background-color: $color01;
+}
+
+/*  .f_site__nav
+------------------------------------- */
+.f_site__nav {
+  grid-area: nav;
+  background-color: $color02;
+}
+
+/*  .f_site__breadcrumb
+------------------------------------- */
+.f_site__breadcrumb {
+  grid-area: breadcrumb;
+  padding: 5px 0;
+  background-color: $color03;
+}
+
+/*  .f_site__main
+------------------------------------- */
+.f_site__main {
+  grid-area: main;
+  margin: 15px 0 0;
+  background-color: $color04;
+}
+
+/*  .f_site__related
+------------------------------------- */
+.f_site__related {
+  grid-area: related;
+}
+
+/*  .f_site__sidebar
+------------------------------------- */
+.f_site__sidebar {
+  grid-area: sidebar;
+  margin-top: 15px;
+}
+
+/*  .f_site__footer
+------------------------------------- */
+.f_site__footer {
+  grid-area: footer;
+  margin-top: 32px;
+  background-color: $color01;
+}

@@ -1,0 +1,17 @@
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(charset="utf-8")
+meta(name="viewport" content="width=device-width, initial-scale=1")
+if key == "top"
+  title #{title}
+else
+  title #{title}｜テンプレートHTML
+meta(name="keywords" content=keywords)
+meta(name="description" content=description)
+meta(property="og:site_name" content="テンプレートHTML")
+meta(property="og:title" content=title)
+meta(property="og:image" content=level+"#")
+meta(content=(key == "top" ? "website" : "article"), property="og:type")
+meta(property="og:description" content=description)
+link(href=level+"#" rel="shortcut icon")
+link(href=level+"common/css/style.css" rel="stylesheet" type="text/css" media="all")
+link(href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet")

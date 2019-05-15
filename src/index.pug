@@ -1,0 +1,22 @@
+extends _frame.pug
+
+block vars
+  - var key = 'top'
+  - var level = ''
+  - var title = 'テンプレートHTML'
+  - var keywords = ''
+  - var description = ''
+
+block contents
+  div.l_article-list
+    - for (var i = 0; i < 7; i++)
+      div.p_card.l_article-list__item
+        div.p_card__head
+          img(src=level + "common/img/img_sample1.jpg")
+        div.p_card__body
+          h4.c_ttl.p_card__ttl: a(href="#") カードのタイトル
+          p.c_date.p_card__date 2019.00.00
+          p.p_card__tag
+            a(href="#").c_tag タグ1
+            a(href="#").c_tag タグ2
+            a(href="#").c_tag タグ3

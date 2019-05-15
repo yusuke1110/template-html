@@ -1,0 +1,32 @@
+extends _frame.pug
+
+block vars
+  - var key = 'pick-one'
+  - var level = ''
+  - var title = '中ページ'
+  - var keywords = ''
+  - var description = ''
+
+block breadcrumb
+  ul.c_breadcrumb.u_wrap(itemscope itemtype="http://schema.org/BreadcrumbList")
+    li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+      a(itemprop="item" href="#"): span(itemprop="name") HOME
+      meta(itemprop="position" content="1")
+    li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+      a(itemprop="item" href="#"): span(itemprop="name") 中ページ
+      meta(itemprop="position" content="2")
+
+block contents
+  div.l_main
+    h1 h1見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
+    h2 h2中見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
+    h3 h3中見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
+    h4 h4中見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
+    h5 h5中見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
+    h6 h6中見出し
+    p 内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。内容が入ります。
