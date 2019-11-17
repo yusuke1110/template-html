@@ -1,29 +1,32 @@
-# コーディングルール
+# BFLOCSSコーディングルール
+B: Base  
+F: Frame  
+L: layout  
+O: Object  
+CSS
 
-## 基本的な方向性
-- 複数人でのコーディングも対応可能
-- フィニッシュを行う人間（ディレクターやリーダー）が修正、管理しやすい  
-Layoutはディレクターが管理し、Object部分はスタッフが行う。  
-最後のフィニッシュ作業はコードを整理しながらディレクターがまとめる…という様な想定。  
-ガチガチにルールで縛るのではなく、ディレクターにより作業範囲を狭め、スタッフには必要な作業に集中してもらう。  
-作業範囲が狭いということは、影響の出る範囲も少なく、修正が必要な場合も容易である。  
+## このコーディングルールが目指すもの
+1. 複数人でのコーディングを対応可能にする
+1. コードの修正、管理をしやすくする  
+Layout部分はディレクターが管理し、Object部分はスタッフが行う想定。  
+最後のフィニッシュ作業はコードを整理しながらディレクターがまとめる想定。  
+ルールで縛るのではなく、ディレクターにより作業範囲を狭め、スタッフには必要な作業に集中してもらう。  
 全体で作業スピードを上げ、フィニッシュでクオリティを上げる。
-- 誰でもルールに則ることができる  
+1. 誰でもルールに則ることができる  
 上述のとおり、管理者であるディレクターによって作業範囲を狭め、ルールを単純化する。  
 それにより、必要に応じて社内・外注問わず、作業者の入れ替えを可能にする。
-- ルール自体を都度柔軟に変更できる
-- 主に小中規模のコーディングを想定し、管理に重きを置く
-- 使用するツールを限定しない  
+1. ルール自体を都度柔軟に変更できる
+1. 使用するツールを限定しない  
 ツールを使用することにより、効率化を図ることができるが、使用しないことにより作業ができなくなるということは無い様にする。  
 分業する場合、ディレクターは後述するSassを使用する必要があるが、それ以外のスタッフにはそれを強要しない。
 
 ## コーディングルール概要
-- CSSの構成は[FLOCSS](https://github.com/hiloki/flocss)をベースにしている  
+- CSSの構成は[FLOCSS](https://github.com/hiloki/flocss)がベース  
 FLOCSSとの違い
+  - Foundationの呼び名をBaseに変更
   - Frameカテゴリーを追加（FLOCSSで言うLayout）
   - Layoutの捉え方  
 FLOCSSでは「ページを構成するプロジェクト共通のコンテナーブロックのスタイルで、ページ単位で唯一の存在である要素」となっているが、ここではコンテナーブロック内の各要素へ適応するものとする。
-- Foundationの呼び名（Baseに変更）
 - CSSの設定にはIDを使用しない
 - 多くの要素にクラス名を付与する  
 ただし、以下の要素についてはクラス名無しでも良い
@@ -36,31 +39,25 @@ FLOCSSでは「ページを構成するプロジェクト共通のコンテナ�
 ただし無理にSassらしい書き方にする必要は無く、従来のCSSの書き方でも良い。  
 できるだけ小さな単位のファイルとする事で、記述箇所を明確にしたい為、[パーシャル](https://qiita.com/k_momotani/items/3a728e8256047377f1fa)の機能を使用する。
 
-### このコーディングルールで期待する事
-- 壊れにくく、安心して触ることのできる構造になる
-- 修正する箇所がわかりやすい
-- 自ずとコードが整理される
-- WordPress化など、コーディング後に行う作業がやりやすい
-
 ## 命名規則
 - FLOCSSと同様、基本は[MindBEMding](https://github.com/manabuyasuda/styleguide/blob/master/how-to-bem.md)を使用する
 - 適切な接頭辞をつける（後述）
 - 接頭辞/接尾辞の接続は「_（アンダースコア）」とする。
 - 単語の区切りは「-（ハイフン）」とする。  
-- 特定のページのみのブロックについては、ブロック名の後ろに接尾辞をつける  
-  ex.)f_site_home
+- 特定のページのみで使用するブロックには、後ろに接尾辞をつける  
+  ex.) f_site_home
 - Modifierについては、【is_○○】【has_○○】とする（後述）  
 - 以下の単語は省略可とする。  
- - nav（ナビゲーション）
- - btn（ボタン）
- - ttl（タイトル）
- - img（画像）
- - bnr（バナー）
- - icn（アイコン）
- - cat（カテゴリー）
- - bg（背景）
- - sec（セクション）
- - glo（グローバル）
+  - nav（ナビゲーション）
+  - btn（ボタン）
+  - ttl（タイトル）
+  - img（画像）
+  - bnr（バナー）
+  - icn（アイコン）
+  - cat（カテゴリー）
+  - bg（背景）
+  - sec（セクション）
+  - glo（グローバル）
 
 ## CSSファイルの構成
 ### 1. Baseカテゴリー
@@ -204,8 +201,38 @@ normalize.cssの読み込みと、htmlやbody、a要素など、タグに直接�
 それにより、【c_date】は他の場所でも使用できるブロックとなります。
 
 プロジェクトなのか、コンポーネントなのかは迷う事が多いと思います。  
-その場合はプロジェクトとすることを推奨します。  
-上の例をコンポーネントと見なした場合は、以下のようになります。
+その場合はプロジェクトとすることを推奨します。
+
+もし上記の例をコンポーネントと見なした場合は、以下のようになります。
+
+```HTML
+<!-- HTML -->
+<div class="c_card">
+  <div class="c_card__head"><img src="sample.jpg"></div>
+  <div class="c_card__foot">
+    <h4 class="c_card__ttl">カードタイトル</h4>
+    <p class="c_card__date">2019.00.00</p>
+  </div>
+</div>
+```
+```CSS
+/* CSS */
+.c_card {
+  padding: 10px;
+  background-color: white;
+}
+.c_card__head {
+  width: 100%;
+  height: 140px;
+}
+.c_card__date {
+  margin-top: 10px;
+  font-size: 10px;
+}
+```
+
+この場合、【c_card\__date】は【c_card】のエレメントとして指定されており、【c_card\__date】単体を他の場所で再利用することはできませんが、CSSとしては記述箇所がcomponent.cssに集約されるため、見通しが良くなるというメリットがあります。  
+最初から最適解を導くことは難しいため、コード全体が見えてきたときに、プロジェクトとコンポーネントかを改めて判断してください。
 
 #### 4-3. Utility
 上記以外のページごとの設定や、位置調整、テキスト装飾などで使用する汎用的なものとはUtilityとします。  
@@ -233,28 +260,29 @@ ComponentとProjectのモディファイアには接頭辞【is_】をつけ、c
   <tr>
     <td>f_<br>(Frame)</td>
     <td>site</td>
-    <td>__header<br>__nav<br>__container<br>__sidebar<br>__main<br>__footer</td>
+    <td>\_\_header<br>\_\_hero<br>\_\_nav<br>\_\_container<br>\_\_sidebar<br>\_\_main<br>\_\_footer</td>
     <td>has_○○</td>
   </tr>
   <tr>
     <td>l_<br>(Layout)</td>
     <td>header<br>nav<br>container<br>sidebar<br>main<br>footer<br>section<br>content<br>article</td>
-    <td>__left（左）<br>__center（左右中央）<br>__right（右）<br>__top（上）<br>__middle（上下中央）<br>__bottom（下）<br>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
+    <td>\_\_left（左）<br>\_\_center（左右中央）<br>\_\_right（右）<br>\_\_top（上）<br>\_\_middle（上下中央）<br>\_\_bottom（下）<br>\_\_head（上部）<br>\_\_body（主要部分）<br>\_\_foot（下部）<br>\_\_inner（内側の）<br>\_\_outer（外側の）<br>\_\_first（1番目の）<br>\_\_second（2番目の）<br>\_\_third（3番目の）<br>\_\_fourth（4番目の）</td>
     <td>has_○○</td>
   </tr>
   <tr>
     <td>c_<br>(Component)</td>
     <td>ttl<br>date<br>time<br>logo<br>nav<br>txt<br>hero<br>hamburger<br>back-to-top<br>search-box<br>btn<br>badge<br>label<br>tag<br>cta<br>dropdown<br>accordion<br>table</td>
-    <td>__○○<br>Compoentを最小の単位とするならば、<br>Elementはあまり使われないハズ</td>
+    <td>\_\_○○<br>Compoentを最小の単位とするならば、<br>Elementはあまり使われないハズ</td>
     <td>is_ +<br>show（見せる）<br>hide（隠す）<br>open（開く）<br>close（閉じる）<br>current（現在の）<br>active（有効な）<br>disabled（無効）</td>
   </tr>
   <tr>
     <td>p_<br>(Project)<br>作業者によっては<br>Componentと判断する<br>場合も有り</td>
-    <td>card<br>profile<br>gellery<br>article</td>
-    <td>__head（上部）<br>__foot（下部）<br>__body（主要部分）<br>__inner（内側の）<br>__outer（外側の）<br>__ttl（表題・題名）<br>__lead（記事の要約）<br>__list（一覧・表）<br>__menu（一覧・表）<br>__item（項目）<br>__thumbnail（縮小画像）<br>__date（日付）<br>__time（日時）</td>
+    <td>header<br>footer<br>card<br>profile<br>gellery<br>article</td>
+    <td>\_\_01<br>\_\_02<br>以下同…<br>名前を考えるのが大変なので、<br>プロジェクトのエレメントは数字を使用する。</td>
     <td>is_ +<br>vertical（垂直）<br>horizontal（水平）</td>
   </tr>
 </table>
+
 
 参考: [CSSのクラス名を決めるときに使うリストをつくりました](https://qiita.com/manabuyasuda/items/dbb76ed36970bec95470#state)
 
