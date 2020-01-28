@@ -1,0 +1,70 @@
+/*----------------------------------------------
+	.p_hamburger-nav
+---------------------------------------------*/
+.p_hamburger-nav,
+.p_hamburger-nav__icon,
+.p_hamburger-nav__menu {
+  display: none;
+}
+@media screen and (max-width: $breakpoint_sm) {
+  .p_hamburger-nav__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    &::before {
+      display: block;
+      font-family: "Font Awesome 5 Pro";
+      content: "\f0c9";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 30px;
+    }
+    &::after {
+      content: "menu";
+      font-size: 1rem;
+    }
+  }
+  .p_hamburger-nav:checked ~ .p_hamburger-nav__icon::before {
+    content: "\f00d";
+  }
+  .p_hamburger-nav__menu {
+    display: block;
+    visibility: hidden;
+    overflow: auto;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;/*最前面に*/
+    height: calc(100vh - 96px);
+    background: rgba($color02, .9);
+    transition: .3s;
+    opacity: 0;
+  }
+  .p_hamburger-nav:checked ~ .p_hamburger-nav__menu {
+    visibility: visible;
+    opacity: 1;
+  }
+  .p_hamburger-nav__list {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+  }
+  .p_hamburger-nav__list > li {
+    border-bottom: 1px solid rgba($color05, 0.4);
+  }
+  .p_hamburger-nav__list a {
+    display: block;
+    padding: 20px;
+    color: $color05;
+  }
+  .p_hamburger-nav__list a::before {
+    content: none!important; //外部リンクアイコンの表示打ち消し
+  }
+}
