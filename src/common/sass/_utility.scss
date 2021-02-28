@@ -55,17 +55,20 @@
 /*----------------------------------------------
 	.u_stretched-link
 ---------------------------------------------*/
-
-.u_stretched-link::after {
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:1;
-  pointer-events:auto;
-  content:"";
-  background-color:rgba(0,0,0,0)
+// リンクが含まれる親要素に".u_stretched-link"を追加する
+.u_stretched-link {
+  position: relative;
+}
+.u_stretched-link a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0,0,0,0)
 }
 
 /*----------------------------------------------
