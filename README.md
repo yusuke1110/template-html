@@ -78,7 +78,7 @@ Frameを追加する事で、外側のレイヤーと中身のレイヤーがよ
   1. Project - `card`、`breadcrumb`、`hamburger`など
   1. Utility - `.clearfix`、`margin`など
 
-![img_css-category](https://user-images.githubusercontent.com/47527392/84362845-d4e95a00-ac08-11ea-9842-8e0331e41cc2.png)
+![img_css-category](https://user-images.githubusercontent.com/47527392/109655526-b49e6880-7ba6-11eb-9f3a-10bdfe8b20a0.png)
 
 ### 1. Baseレイヤー
 normalize.cssの読み込みと、`html`や`body`、`a`要素など、タグに直接設定するものを記述します。  
