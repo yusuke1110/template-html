@@ -4,23 +4,13 @@
 /*----------------------------------------------
 	html
 ---------------------------------------------*/
-html { font-size: 62.5%; }
-/*↑ 10pxが1remとなる様に調整*/
 
 /*----------------------------------------------
 	body
 ---------------------------------------------*/
 body {
-  font-size: 16px; font-size: 1.6rem;
-  /*↑ remをサポートしていないブラウザ向けにpxでも指定　Set as "px" for browsers that don't support "rem"*/
-  font-family: $font-family-sans-serif;
-  color: #333;
-}
-
-@media screen and (max-width: $breakpoint) {
-  body {
-    min-width: inherit;
-  }
+  font-size: 16px;
+  font-family: $sans-serif;
 }
 
 /*----------------------------------------------
@@ -45,9 +35,3 @@ table {
 /*----------------------------------------------
 	img
 ---------------------------------------------*/
-
-@media screen and (max-width: $breakpoint) {
-  img {
-    max-width: 100%;
-  }
-}

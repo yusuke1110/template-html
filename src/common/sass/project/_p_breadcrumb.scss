@@ -1,0 +1,39 @@
+/*----------------------------------------------
+	.p_breadcrumb
+---------------------------------------------*/
+.p_breadcrumb > ul {
+  display: flex;
+  margin: 0 auto;
+  padding: 13px 0;
+  list-style-type: none;
+  font-size: 1.4rem;
+}
+.p_breadcrumb > ul > li {
+  margin-right: .4em;
+  padding: 0;
+}
+.p_breadcrumb > ul > li::after {
+  font-family: "Font Awesome 5 Pro";
+  content: '\f0da';
+  font-weight: 900;
+  margin-left: 0.4em;
+  font-size: 1rem;
+  color: $color02;
+}
+.p_breadcrumb > ul > li:last-of-type::after {
+  content: none;
+}
+.p_breadcrumb > ul > li > a {
+  color: $color03;
+}
+@media screen and (max-width: $sm) {
+  .p_breadcrumb > ul {
+    font-size: 1.2rem;
+  }
+  .p_breadcrumb > ul > li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 20em;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,81 @@
+/*----------------------------------------------
+	.c_ttl
+---------------------------------------------*/
+
+.c_ttl {
+  margin-top: $space-lg;
+  margin-bottom: $space-lg;
+  font-family: $serif;
+  font-size: 3.5rem;
+  font-weight: normal;
+  text-align: center;
+  -webkit-font-smoothing: antialiased; // Chrome/Safari for Mac
+  -moz-osx-font-smoothing: grayscale; // Firefox for Mac
+}
+
+@media screen and (max-width: $sm) {
+  .c_ttl {
+    font-size: 6vw;
+  }
+}
+
+/*----------------------------------------------
+	.c_ttl-b
+---------------------------------------------*/
+
+.c_ttl-b {
+  margin-top: $space-md;
+  margin-bottom: $space-md;
+  font-family: $serif;
+  font-size: 3rem;
+  font-weight: normal;
+  text-align: center;
+  -webkit-font-smoothing: antialiased; // Chrome/Safari for Mac
+  -moz-osx-font-smoothing: grayscale; // Firefox for Mac
+}
+
+@media screen and (max-width: $sm) {
+  .c_ttl-b {
+    font-size: 5vw;
+  }
+}
+
+/*----------------------------------------------
+	.c_ttl-c
+---------------------------------------------*/
+
+.c_ttl-c {
+  position: relative;
+  margin-top: $space-md;
+  margin-bottom: $space-md;
+  padding-left: $space-sm;
+  font-family: $serif;
+  font-size: 2.2rem;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; // Chrome/Safari for Mac
+  -moz-osx-font-smoothing: grayscale; // Firefox for Mac
+  line-height: 1.4;
+}
+
+.c_ttl-c::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 3px;
+  height: 100%;
+}
+
+* > .c_ttl-c:first-child {
+  margin-top: 0;
+}
+
+@media screen and (max-width: $sm) {
+  .c_ttl-c {
+    font-size: 4.5vw;
+  }
+
+  * > .c_ttl-c:first-child {
+    margin-top: $space-md;
+  }
+}
