@@ -6,7 +6,7 @@
 .p_hamburger-nav__menu {
   display: none;
 }
-@media screen and (max-width: $breakpoint_sm) {
+@media screen and (max-width: $sm) {
   .p_hamburger-nav__icon {
     display: flex;
     flex-direction: column;

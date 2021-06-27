@@ -1,0 +1,90 @@
+/*----------------------------------------------
+	.p_card
+---------------------------------------------*/
+.p_card {
+  height: 100%;
+  background-color: $color05;
+}
+.p_card__img > img {
+  width: 100%;
+}
+.p_card__contents {
+  padding: 28px;
+}
+.p_card__ttl {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.p_card__ttl > span {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  font-size: 1.4rem;
+  text-align: right;
+  &::before {
+    content: '';
+    flex-grow: 1;
+    margin-right: .4em;
+    border-top: 1px solid $color03;
+  }
+}
+.p_card__txt {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  line-height: 2.1;
+}
+@media screen and (max-width: $sm) {
+  .p_card__ttl {
+    font-size: 5.2vw;
+  }
+}
+
+/*----------------------------------------------
+	.p_card-b
+---------------------------------------------*/
+.p_card-b {
+  display: flex;
+  align-items: center;
+}
+.p_card-b__img {
+  flex-shrink: 1;
+  margin-right: 12px;
+}
+.p_card-b__img > img {
+  width: 100%;
+}
+.p_card-b__contents {
+  flex-shrink: 4;
+}
+.p_card-b__txt {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+.p_card-b__link {
+  margin-top: 4px;
+  font-size: 1.2rem;
+  text-align: right;
+}
+.p_card-b__link > a {
+  color: $color02;
+}
+.p_card-b__link:before {
+  font-family: "Font Awesome 5 Pro";
+  content: '\f0da';
+  font-weight: 900;
+  margin-right: 5px;
+  color: $color02;
+}
+@media screen and (max-width: $sm) {
+  .p_card-b__ttl {
+    font-size: 3.4vw;
+  }
+  .p_card-b__txt {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}

@@ -44,15 +44,6 @@
 }
 
 /*----------------------------------------------
-	.u_wrap
----------------------------------------------*/
-
-.u_wrap {
-  width: $site-width;
-  margin: 0 auto;
-}
-
-/*----------------------------------------------
 	.u_stretched-link
 ---------------------------------------------*/
 // リンクが含まれる親要素に".u_stretched-link"を追加する
@@ -72,13 +63,11 @@
 }
 
 /*----------------------------------------------
-	Display none on specific viewport
+	Hide
 ---------------------------------------------*/
-
-@media only screen and (min-width: $breakpoint + 1) {
-  .mobile { display: none; }
+@media screen and (min-width: $md + 1) {
+  .u_hidden-desktop { display: none; }
 }
-
-@media only screen and (max-width: $breakpoint) {
-  .desktop { display: none; }
+@media screen and (max-width: $md) {
+  .u_hidden-touch { display: none; }
 }

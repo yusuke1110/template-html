@@ -1,63 +1,138 @@
 @charset "utf-8";
 
-/* ↓↓↓↓↓↓ Comment out sample ↓↓↓↓↓↓ */
 /*----------------------------------------------
-	大くくりコメントアウト large part
+	Comment out sample (Large)
 ---------------------------------------------*/
 
-/*  中くくりコメントアウト middle part
+/* Comment out sample (Middle)
 ------------------------------------- */
 
-/* 小くくりコメントアウト small part */
+/* Comment out sample (Small) */
 
-$site-width: 1000px;
-$breakpoint: 600px;
-$font-family-sans-serif: Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-$font-family-sans-serif-secondary: Roboto, "游ゴシック", YuGothic, sans-serif;
-$font-family-serif: "Hiragino Mincho ProN", "游明朝", "YuMincho", "HG明朝E", Meiryo, serif;
+/*----------------------------------------------
+	Variables
+---------------------------------------------*/
+
+$site-width: 960px;
+
+/* Breakpoint
+------------------------------------- */
+/* Mobile First */
+// $sm: 576px;
+// $md: 768px;
+// $lg: 992px;
+// $xl: 1200px;
+// $xxl: 1400px;
+// @media screen and (min-width: $sm) { }
+// @media screen and (min-width: $md) { }
+// @media screen and (min-width: $lg) { }
+
+/* Desktop First */
+$xxl: 1399px;
+$xl: 1199px;
+$lg: 991px;
+$md: 767px;
+$sm: 575px;
+// @media screen and (max-width: $lg) { }
+// @media screen and (max-width: $md) { }
+// @media screen and (max-width: $sm) { }
+
+/* Text Style
+------------------------------------- */
+/* Font Family */
+$sans-serif: Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$sans-serif-b: Roboto, "游ゴシック", YuGothic, sans-serif;
+$serif: "Hiragino Mincho ProN", "游明朝", "YuMincho", "HG明朝E", Meiryo, serif;
+
+/* Font Size */
+$size-unit: 16px;
+$size-xxxs: 0.25  * $size-unit; // 
+$size-xxs:  0.375 * $size-unit;
+$size-xs:   0.5   * $size-unit;
+$size-sm:   0.75  * $size-unit;
+$size-md:   1.25  * $size-unit;
+$size-lg:   2     * $size-unit;
+$size-xl:   3.25  * $size-unit;
+$size-xxl:  5.25  * $size-unit;
+$size-xxxl: 8.5   * $size-unit;
+
+/* Line Height */
+$line-height-area: 2.2;  // for paragraph
+$line-height-point: 1.3; // for title
+
+/* Color Palette
+------------------------------------- */
 $color01: #10C48B;
 $color02: #12B783;
 $color03: #F7F7F7;
 $color04: #FFFFFF;
 $color05: #F0F0F0;
 
+/* Spacing
+------------------------------------- */
+$space-unit: 1em;
+$space-xxxs: 0.25  * $space-unit;
+$space-xxs:  0.375 * $space-unit;
+$space-xs:   0.5   * $space-unit;
+$space-sm:   0.75  * $space-unit;
+$space-md:   1.25  * $space-unit;
+$space-lg:   2     * $space-unit;
+$space-xl:   3.25  * $space-unit;
+$space-xxl:  5.25  * $space-unit;
+$space-xxxl: 8.5   * $space-unit;
+
 /*----------------------------------------------
-	Base
+	Foundation
 ---------------------------------------------*/
 
-@import "_normalize.scss";
-@import "_base.scss";
+@import "foundation/normalize";
+@import "foundation/base";
 
 /*----------------------------------------------
 	Frame
 ---------------------------------------------*/
 
-@import "_frame.scss";
+@import "frame";
 
 /*----------------------------------------------
 	Layout
 ---------------------------------------------*/
 
-@import "_layout.scss";
+// @import "layout";
 
 /*----------------------------------------------
 	Component
 ---------------------------------------------*/
 
-@import "_component.scss";
+@import "component/c_btn";
+@import "component/c_icon";
+@import "component/c_ttl";
+@import "component/c_txt";
+@import "component/c_tbl";
+@import "component/c_tag";
+@import "component/c_date";
+@import "component/c_list";
+@import "component/c_progress-bar";
+@import "component/others";
 
 /*----------------------------------------------
 	Project
 ---------------------------------------------*/
 
-@import "_project.scss";
+@import "project/p_breadcrumb";
+@import "project/p_hamburger";
+@import "project/p_card";
+@import "project/p_dropdown";
+@import "project/p_pagination";
+@import "project/p_tab";
+@import "project/others";
 
 /*----------------------------------------------
 	Utility
 ---------------------------------------------*/
 
-@import "_utility.scss";
+@import "utility";
 
 /*----------------------------------------------
-	Other
+	Others
 ---------------------------------------------*/
