@@ -335,7 +335,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 <!-- MindBEMdingでのHTMLコーディング例 -->
 <div class="block">
   <div class="block__element"></div>
-  <div class="block__element block__element--modifier"></div>
+  <div class="block__element--modifier"></div>
 </div>
 ```
 
