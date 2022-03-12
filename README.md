@@ -370,15 +370,26 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
     <td>Frame</td>
     <td>f_</td>
     <td>site</td>
-    <td>__header<br>__hero<br>__nav<br>__container<br>__sidebar<br>__main<br>__footer</td>
+    <td>__header<br>__hero<br>
+    __nav<br>
+    __container<br>__sidebar<br>__main<br>__footer</td>
     <td>has_○○</td>
   </tr>
   <tr>
-    <td>Layout</td>
-    <td>l_</td>
-    <td>header<br>nav<br>container<br>sidebar<br>main<br>footer<br>section<br>content<br>article</td>
-    <td>__left（左）<br>__center（左右中央）<br>__right（右）<br>__top（上）<br>__middle（上下中央）<br>__bottom（下）<br>__head（上部）<br>__body（主要部分）<br>__foot（下部）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
-    <td>has_○○</td>
+    <td rowspan="3">Layout</td>
+    <td rowspan="3">l_</td>
+    <td>container</td>
+    <td>__main（main要素に対して付与）<br>      
+      __side（aside要素に対して付与）</td>
+    <td rowspan="3">has_○○</td>
+  </tr>
+  <tr>
+    <td>main</td>
+    <td>__body（主要部分）<br>__side（付帯部分）</td>
+  </tr>
+  <tr>
+    <td>header<br>nav<br>sidebar<br>footer<br>section<br>content<br>article</td>
+    <td>__left（左）<br>__center（左右中央）<br>__right（右）<br>__top（上）<br>__middle（上下中央）<br>__bottom（下）<br>__head（上部）<br>__foot（下部）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
   </tr>
   <tr>
     <td>Component</td>
@@ -390,8 +401,8 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
   <tr>
     <td>Project<br></td>
     <td>p_</td>
-    <td>header<br>footer<br>card<br>profile<br>gellery<br>article</td>
-    <td>__media<br>__contents<br>__[number]</td>
+    <td>header<br>footer<br>card<br>profile<br>gellery<br>article<br>sidebar</td>
+    <td>__ttl<br>__media<br>__contents<br>__[number]</td>
     <td>is_ +<br>vertical（垂直）<br>horizontal（水平）</td>
   </tr>
 </table>
