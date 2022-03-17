@@ -321,6 +321,8 @@ ComponentとProjectのモディファイアには接頭辞【is_】をつけ、c
   - `bg`（背景）
   - `sec`（セクション）
   - `glo`（グローバル）
+- 例外として、`-wrapper`はブロック要素を囲む必要が出た際の親として使用可能
+  - ex.) `.p_○○`を囲みたい場合、外側に`.p_○○-wrapper`を設定する（この場合のwrapperは`.p_○○`ブロックとみなし、CSSは`.p_○○`の中に記述する）
 
 #### MindBEMdingについて
 BEMシステムのシンタックスである、Block、Element、Modifierに分類して命名する方法です。
