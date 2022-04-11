@@ -390,7 +390,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
     <td>__body（主要部分）<br>__side（付帯部分）</td>
   </tr>
   <tr>
-    <td>header<br>nav<br>sidebar<br>footer<br>section<br>content<br>article</td>
+    <td>header<br>nav<br>sidebar<br>footer<br>section<br>content<br>article<br>block</td>
     <td>__left（左）<br>__center（左右中央）<br>__right（右）<br>__top（上）<br>__middle（上下中央）<br>__bottom（下）<br>__head（上部）<br>__foot（下部）<br>__inner（内側の）<br>__outer（外側の）<br>__first（1番目の）<br>__second（2番目の）<br>__third（3番目の）<br>__fourth（4番目の）</td>
   </tr>
   <tr>
@@ -499,7 +499,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 - p_price-list.scss
 - p_price-table.scss
 ```
-これらはどちらの方が良いというのは無いので、プロジェクトごとに決めてください。（但しどちらかに統一するのが適切。）
+これらはどちらの方が適切という事は無いので、プロジェクトごとに決めてください。（但しどちらかに決めたら統一する事。）
 ## まとめ
 これまで何度か出てきたように、コンポーネントの粒度（どのレイヤーに属するか）は作業者の判断に委ねられます。  
 あまり深く考えすぎずに、少し落ち着いたタイミングで都度リファクタリングをする、くらいの軽い気持ちで進めてください。
