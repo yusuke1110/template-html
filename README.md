@@ -4,6 +4,7 @@
 - HTMLテンプレートとして[Pug](https://pugjs.org/api/getting-started.html)、CSSプリプロセッサとして[Sass](https://sass-lang.com/)（SCSS記法）を使用しています。
 - PugやSassを展開するコンパイラとして、[Prepros](https://prepros.io/)を使用しています。
 （ファイル内にある『prepros.config』はPreprosの設定ファイルです。）
+- PugやSassを使用しない場合でも、命名規則・CSS設計・クラス構成ルールは本READMEに準じて運用してください。
 
 ### テンプレートに含まれるファイルの構成
 ```
@@ -30,7 +31,7 @@ template-html
     └── common
         ├── css - Sassを展開したもの
         ├── img - 画像
-        └── js - javascript
+        └── js - JavaScript
 ```
 
 ### このコーディングルールが目指すもの
@@ -57,14 +58,14 @@ CSSフレームワークで使用されるカラムなどもここに含まれ�
     ※WordPressなどCMSを使用している場合にも有効
 - マルチクラスを採用する
 - クラス名に接頭辞を付与する事で、記述箇所を明確にする  
-  ex.) 接頭辞が`.c_`の場合→『component.css』に記述する
+  ex.) 接頭辞が`.c_`の場合 → Componentレイヤーに記述する
 
 このコーディングルールは、[FLOCSS](https://github.com/hiloki/flocss)の考え方をベースに、Frameレイヤーを追加したCSS構成案です。
 Frameを追加する事で、外側のレイヤーと中身のレイヤーがより明確になり、作業分担が行いやすくなります。
 
 1. F: Foundationレイヤー - 要素への直接指定や、normalize.cssなどサイト全体に対する設定
 2. F: Frameレイヤー - `header`や`main`、`footer`など全体の枠の設定
-3. L: layoutレイヤー - Frame内のカラムなど、部分的な枠の設定
+3. L: Layoutレイヤー - Frame内のカラムなど、部分的な枠の設定
 4. O: Objectレイヤー
    1. Component - `button`、`title`、`table`など
    2. Project - `card`、`breadcrumb`、`hamburger`など
@@ -74,9 +75,7 @@ Frameを追加する事で、外側のレイヤーと中身のレイヤーがよ
 
 ### 1. Foundationレイヤー
 normalize.cssの読み込みと、`html`や`body`、`a`要素など、タグに直接設定するものを記述します。  
-*Things that will be set directly and tags such as HTML, body and a element will be written.*
 このカテゴリーについては要素に直接設定する為、接頭辞から始まりません。  
-*Only this category will not begin with the prefix.*
 > ex.) `html` / `p` / `a:hover` etc.
 
 なお、WordPressなどのCMSを使用している場合で、管理画面からのクラス名付与がしづらい（クライアント側でのクラス名付与を前提とした運用が難しい）といった理由で、直接要素に対してCSSを指定する必要がある場合は、wordpress.cssなど別のCSSファイルを作成し、そちらに記入する事を推奨します。
@@ -103,13 +102,8 @@ normalize.cssの読み込みと、`html`や`body`、`a`要素など、タグに�
 
 ### 2. Frameレイヤー
 サイト上の構成の大枠として、ページ内に1度しか出てこないものを記述します。
-*We will write about thing the only comes out once on the page as a frame.*
-
 接頭辞はFrameの頭文字を取って`f_`とします。
-*Prefix will take the "Frame" first letter and use it as `f_`.*
-
 モディファイヤを使用する場合は接頭辞`has_`をつけ、各設定の直下に記述します。
-*When using modifier put the prefix `has_` and write it under each layout.*
 [Modifierについて](#Modifierについて)
 
 > ex.) `.f_site` / `.f_site__header` / `.f_site__nav` etc.
@@ -179,25 +173,26 @@ FLOCSSのObjectレイヤーには以下の3つが含まれます。
 *When using modifier put the prefix `is_` and write it under each component.*
 [Modifierについて](#Modifierについて)
 
-> `.c_btn` / `.c_breadcrumb` / `.c_hero` / `.c_dropdown` / `.c_thumbnail` etc.
+> `.c_button` / `.c_breadcrumb` / `.c_hero` / `.c_dropdown` / `.c_thumbnail` etc.
 
 ```HTML
 <!-- HTMLの例 -->
-<a href="#" class="c_btn">標準ボタン</a>
-<a href="#" class="c_btn is_blue">青いボタン</a>
+<a href="#" class="c_button">標準ボタン</a>
+<a href="#" class="c_button is_ghost">ゴーストボタン</a>
 ```
 ```css
-/* CSSの例 (component.css) */
-.c_btn {
+/* CSSの例 (Componentレイヤー) */
+.c_button {
   display: inline-block;
   padding: 15px 20px;
   border-radius: 5px;
   background-color: gray;
 }
-.c_btn.is_blue {
+.c_button.is_ghost {
   color: white;
   background-color: blue;
 }
+.is_ghost {} /* NG */
 ```
 
 #### 4-2. Project
@@ -218,13 +213,13 @@ FLOCSSのObjectレイヤーには以下の3つが含まれます。
 <div class="p_card">
   <div class="p_card__media"><img src="sample.jpg"></div>
   <div class="p_card__contents">
-    <h4 class="c_ttl p_card__ttl">カードタイトル</h4>
+    <h4 class="c_title p_card__title">カードタイトル</h4>
     <p class="c_date p_card__date">2019.00.00</p>
   </div>
 </div>
 ```
 ```CSS
-/* CSSの例 (project.css) */
+/* CSSの例 (Projectレイヤー) */
 .p_card {
   padding: 10px;
   background-color: white;
@@ -234,13 +229,13 @@ FLOCSSのObjectレイヤーには以下の3つが含まれます。
 }
 ```
 ```CSS
-/* CSSの例 (component.css) */
+/* CSSの例 (Componentレイヤー) */
 .c_date {
   font-size: 10px;
 }
 ```
 
-上記の例では、`.p_card`>`.p_card__contents`の中にコンポーネントである`.c_ttl`と`.c_date`が含まれています。  
+上記の例では、`.p_card`>`.p_card__contents`の中にコンポーネントである`.c_title`と`.c_date`が含まれています。  
 そのため、このオブジェクトは自動的にプロジェクトとなります。  
 ここで注目すべきは、コンポーネントである`.c_date`にはマージンの指定をしておらず、プロジェクトのエレメントである`.p_card__date`に対して指定しているということです。  
 それにより、`.c_date`はマージンの指定されていないピュアなコンポーネントとなり、他の場所でも使用できるブロックとなります。  
@@ -255,13 +250,13 @@ FLOCSSのObjectレイヤーには以下の3つが含まれます。
 <div class="c_card">
   <div class="c_card__media"><img src="sample.jpg"></div>
   <div class="c_card__contents">
-    <h4 class="c_card__ttl">カードタイトル</h4>
+    <h4 class="c_card__title">カードタイトル</h4>
     <p class="c_card__date">2019.00.00</p>
   </div>
 </div>
 ```
 ```CSS
-/* CSSの例 (component.css) */
+/* CSSの例 (Componentレイヤー) */
 .c_card {
   padding: 10px;
   background-color: white;
@@ -272,23 +267,28 @@ FLOCSSのObjectレイヤーには以下の3つが含まれます。
 }
 ```
 
-この場合、`.c_card__date`は`.c_card`のエレメントとして指定されており、`.c_card__date`単体を他の場所で再利用することはできませんが、CSSとしては記述箇所がcomponent.cssに集約されるため、見通しが良くなるというメリットがあります。  
+この場合、`.c_card__date`は`.c_card`のエレメントとして指定されており、`.c_card__date`単体を他の場所で再利用することはできませんが、CSSとしては記述箇所がComponentレイヤーに集約されるため、見通しが良くなるというメリットがあります。  
 最初から最適解を導くことは難しいため、コード全体が見えてきたときに改めてプロジェクトとコンポーネントかを判断してください。
 
 #### 4-3. Utility
 上記以外のページごとの設定や、位置調整、テキスト装飾などで使用する汎用的なものはUtilityとします。  
 ユーティリティには接頭辞`u_`をつけ、『_utility.css』に記述します。  
 なお、clearfixもユーティリティに該当しますが、例外的に接頭辞はつけない事とします。
-> ex.) .clearfix、.u_mab10、.u_ALcenterなど
+> ex.) .clearfix、.u_margin-bottom-10、.u_text-centerなど
 
 ### Modifierについて
 Layoutの幅の違いや、Componentの色のバリエーションなど、状態違いのものはModifierとします。  
-FrameとLayoutのモディファイアには接頭辞`has_`をつけ、layout.cssの各設定の直下に記述します。  
-ComponentとProjectのモディファイアには接頭辞`is_`をつけ、component.cssの各設定の直下に記述します。  
-よって、接頭辞`l_`と一緒に指定されるのは`has_`のみ、接頭辞`c_`と一緒に指定されるのは`is_`のみとなります。  
-意味合いを含まないデザイン違いのものは「type00」といった連番で区別します。  
-記述の際は、`.c_`の後にスペース無しで記入するというルールとします。
-> ex.) .c_btn.is_blue / .c_form.is_large / .c_logo.is_type01 etc.
+FrameとLayoutのモディファイアには接頭辞`has_`をつけ、Frame / Layoutレイヤーの各設定の直下に記述します。  
+ComponentとProjectのモディファイアには接頭辞`is_`をつけ、それぞれのレイヤーの各設定の直下に記述します。  
+よって  
+接頭辞`f_` / `l_` と一緒に指定されるModifierは `has_`、  
+接頭辞`c_` / `p_` と一緒に指定されるModifierは `is_` のみとなります。  
+意味合いを含まないデザイン違いのものは、原則としてModifierで管理し、`is_type01` / `has_type01` のような連番で区別します。  
+ただし、Modifierではなく別ブロックとして管理した方が分かりやすい場合は、`.c_card-type01` のようにBlock名側で連番を使用しても構いません。  
+記述の際は、対象BlockとModifierをスペース無しで連結して指定します。
+> ex.) .c_button.is_ghost {} / .c_form.is_large {} / .c_logo.is_type01 {} etc.
+Modifierは単独では記述しないでください。
+> ex.) .is_active {} / .has_bg {} ← NG
 
 ### 命名規則
 - FLOCSSと同様、[MindBEMding](https://github.com/manabuyasuda/styleguide/blob/master/how-to-bem.md)+[SMACSS](http://smacss.com/ja)の融合ルールを使用する
@@ -298,7 +298,7 @@ ComponentとProjectのモディファイアには接頭辞`is_`をつけ、compo
   - `.c_◯◯`（Component）
   - `.p_◯◯`（Project）
   - `.u_◯◯`（Utility）
-  - `#js_◯◯`（Javascriptで制御する場合）
+  - `.js_◯◯`（JavaScriptで制御する場合）
 - 特定のページや特定の幅のみで使用するブロックには、後ろに接尾辞をつけ、接続は`_（アンダースコア）`とする
   - ex.1) `.◯_sm`（Small幅でのみ使用する場合の例）
   - ex.2) `.◯_home`（ホームでのみ使用する場合の例）
@@ -306,22 +306,20 @@ ComponentとProjectのモディファイアには接頭辞`is_`をつけ、compo
 - 単語の区切りは`-（ハイフン）`とする。
   - ex.) `.u_stretched-link`
 - Modifierについては、`is_○○`、`has_○○`とする（Modifierについては後述）
-  - ex.1) `.c_btn.is_narrow`（`.is_narrow`は`.c_btn`のModifier）
-  - ex.2) `.l_columns.has_12`（`.has_12`は`.l_columns`のModifier）
-- 以下の単語は省略可とする。
-  - `nav`（ナビゲーション）
-  - `btn`（ボタン）
-  - `ttl`（タイトル）
-  - `txt`（テキスト）
-  - `tbl`（テーブル）
-  - `img`（画像）
-  - `bnr`（バナー）
-  - `ico`（アイコン）
-  - `cat`（カテゴリー）
-  - `bg`（背景）
-  - `sec`（セクション）
-  - `glo`（グローバル）
-- 例外として、`-wrapper`はブロック要素を囲む必要が出た際の親として使用可能
+  - ex.1) `.c_button.is_narrow`（`.is_narrow`は`.c_button`のModifier）
+  - ex.2) `.l_columns.has_col-12`（`.has_col-12`は`.l_columns`のModifier）
+- 原則として単語は省略しない。
+  - `.c_button`
+  - `.c_title`
+  - `.c_text`
+  - `.c_image`
+  - `.p_home-section`
+    - ただし、一般的に意味が通じる略語は使用可。
+    - `nav`
+    - `cta`
+    - `faq`
+    - `sns`
+- 命名規則の例外として、`-wrapper`はブロック要素を囲む必要が出た際の親として使用可能
   - ex.) `.p_○○`を囲みたい場合、外側に`.p_○○-wrapper`を設定する（この場合のwrapperは`.p_○○`ブロックとみなし、CSSは`.p_○○`に記述する）
 
 #### MindBEMdingについて
@@ -331,7 +329,7 @@ BEMシステムのシンタックスである、Block、Element、Modifierに分
 - Element: Blockの子孫要素
 - Modifier: BlockやElementのバリエーション
 
-BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイフン2つで繋ぎます。
+MindBEMdingでは、Elementはアンダースコア2つ、Block/ElementとModifierはハイフン2つで繋ぎます。
 
 ```HTML
 <!-- MindBEMdingでのHTMLコーディング例 -->
@@ -341,7 +339,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 </div>
 ```
 
-ただし、FLOCSSのModifierについては、SMACSSのStateパターンの命名規則を利用し、`is_◯◯`というようにします。
+ただし本ルールでは、ModifierについてはSMACSSのStateパターンを利用し、`is_` / `has_` のマルチクラスで管理します。
 
 ```HTML
 <!-- FLOCSSでのHTMLコーディング例 -->
@@ -396,15 +394,15 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
   <tr>
     <td>Component</td>
     <td>c_</td>
-    <td>ttl<br>date<br>time<br>logo<br>nav<br>txt<br>hero<br>hamburger<br>back-to-top<br>search-box<br>btn<br>badge<br>label<br>tag<br>cta<br>dropdown<br>accordion<br>table</td>
+    <td>title<br>date<br>time<br>logo<br>nav<br>text<br>hero<br>hamburger<br>back-to-top<br>search-box<br>button<br>badge<br>label<br>tag<br>cta<br>dropdown<br>accordion<br>table</td>
     <td>__○○</td>
-    <td>is_ +<br>show（見せる）<br>hide（隠す）<br>open（開く）<br>close（閉じる）<br>current（現在の）<br>active（有効な）<br>disabled（無効）</td>
+    <td>is_ +<br>visible（表示）<br>hidden（非表示）<br>open（開いている）<br>closed（閉じている）<br>current（現在の）<br>active（有効な）<br>disabled（無効）</td>
   </tr>
   <tr>
     <td>Project<br></td>
     <td>p_</td>
-    <td>header<br>footer<br>card<br>profile<br>gellery<br>article<br>sidebar</td>
-    <td>__ttl<br>__media<br>__contents<br>__[number]</td>
+    <td>header<br>footer<br>card<br>profile<br>gallery<br>article<br>sidebar</td>
+    <td>__title<br>__media<br>__contents<br>__[number]</td>
     <td>is_ +<br>vertical（垂直）<br>horizontal（水平）</td>
   </tr>
 </table>
@@ -425,7 +423,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 <div class="p_card">
   <div class="p_card__media"><img src="sample.jpg"></div>
   <div class="p_card__contents">
-    <h4 class="c_ttl-card">カードタイトル</h4> ←（＊）
+    <h4 class="c_title-card">カードタイトル</h4> ←（＊）
     <p class="p_card__date">2019.00.00</p>
   </div>
 </div>
@@ -435,21 +433,21 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 <div class="p_card">
   <div class="p_card__media"><img src="sample.jpg"></div>
   <div class="p_card__contents">
-    <h4 class="p_card__ttl">カードタイトル</h4> ←（＊）
+    <h4 class="p_card__title">カードタイトル</h4> ←（＊）
     <p class="p_card__date">2019.00.00</p>
   </div>
 </div>
 ```
 
 ＊印をつけた箇所に着目して見てください。
-- `c_ttl-card` ←OK
-- `p_card__ttl` ←Good
+- `c_title-card` ← ルール上は可
+- `p_card__title` ← Good
 
-これは考え方によってどちらもありうるのですが、例1のタイトル（`c_ttl-card`）はブロック、例2のタイトル（`c_card__ttl`）はエレメントとして捉えられています。
+これは考え方によってどちらもありうるのですが、例1のタイトル（`c_title-card`）はブロック、例2のタイトル（`p_card__title`）はエレメントとして捉えられています。
 
-ブロック要素である`c_ttl-card`は他の場所でも使えるということを示唆しているのですが、クラス名として`card`という名称が使われており、意味合いとしてはカードブロック内でしか使えないものという事になります。（ルールには合致するが、名前から考えると使えない。）
+ブロック要素である`c_title-card`は他の場所でも使えるということを示唆しているのですが、クラス名として`card`という名称が使われており、意味合いとしてはカードブロック内でしか使えないものという事になります。（ルールには合致するが、名前から考えると使えない。）
 
-そのため、この例のようにカード内でしか使われないタイトルという事であれば、カードブロック内のタイトルは`p_card`のエレメントとし、`p_card__ttl`とする方が適切ということになります。
+そのため、この例のようにカード内でしか使われないタイトルという事であれば、カードブロック内のタイトルは`p_card`のエレメントとし、`p_card__title`とする方が適切ということになります。
 
 カード内のタイトルが他の箇所に出てくるタイトルと同じもので、一つのブロックとして扱うのであれば、自然と意味的な名前（ここで言うcard）が含まれないものになるハズです。
 
@@ -458,7 +456,7 @@ BlockとElementはアンダースコア2つ、Block/ElementとModifierはハイ�
 <div class="p_card">
   <div class="p_card__media"><img src="sample.jpg"></div>
   <div class="p_card__contents">
-    <h4 class="c_ttl p_card__ttl">カードタイトル</h4> ←（c_ttl）
+    <h4 class="c_title p_card__title">カードタイトル</h4> ←（c_title）
     <p class="c_date p_card__date">2019.00.00</p> ←（c_date）
   </div>
 </div>
